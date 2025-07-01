@@ -10,9 +10,11 @@ CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
 export default function Loader() {
 
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        if (!ref.current) return;
+
         const tl = gsap.timeline({
             delay: 0.3,
             defaults: {
@@ -22,7 +24,7 @@ export default function Loader() {
 
         const counts = ref.current.querySelectorAll(".count");
 
-        counts.forEach((count, index) => {
+        counts.forEach((count: Element, index: number) => {
             const digits = count.querySelectorAll(".digit h1");
 
             tl.to(digits, {
@@ -30,14 +32,14 @@ export default function Loader() {
                 opacity: 1,
                 duration: 1,
                 stagger: 0.075,
-            }, index * 1);
+            }, index);
 
             tl.to(digits, {
                 y: "-100%",
                 duration: 1,
                 opacity: 0,
                 stagger: 0.075,
-            }, index * 1 + 1);
+            }, index + 1);
         });
 
         tl.to(".spinner", {
@@ -53,9 +55,13 @@ export default function Loader() {
         tl.to(".divider", {
             scaleY: "100%",
             duration: 1,
-            onComplete: () =>
-                gsap.to(".divider", {opacity: 0, duration: 0.3, delay: 0.3}),
-        });
+            onComplete: () => {
+                gsap.to(".divider", {
+                    opacity: 0,
+                    duration: 0.3,
+                    delay: 0.3
+                });
+            }});
 
         tl.to("#word-1 h1", {
             y: "100%",
@@ -74,8 +80,8 @@ export default function Loader() {
             duration: 1.5,
             stagger: 0.1,
             delay: 0.75,
-            onComplete: () =>{
-                ref.current.style.display = "none";
+            onComplete: () => {
+                if (ref.current) ref.current.style.display = "none";
             }
         }, "<");
 
@@ -90,9 +96,9 @@ export default function Loader() {
                 <div className="w-full h-full bg-[#f4efe6] loader-block"></div>
             </div>
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-3 intro-logo">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 intro-logo">
                 <div id="word-1" className="relative word overflow-hidden">
-                    <h1 className="text-[2.5rem] text-[#b60708] pr-1 translate-y-full font-semibold italic">
+                    <h1 className="text-[2.5rem] text-[#b60708] translate-y-full font-semibold italic">
                         <span>Psi</span>
                     </h1>
                 </div>
@@ -101,10 +107,12 @@ export default function Loader() {
                 </div>
             </div>
 
-            <div className="divider absolute top-0 left-[calc(50%-1.15rem)] -translate-x-1/2 origin-top w-px h-full bg-[#b60708] scale-y-0"></div>
+            <div
+                className="divider absolute top-0 left-[calc(50%-1.15rem)] -translate-x-1/2 origin-top w-px h-full bg-[#b60708] scale-y-0"></div>
 
             <div className="spinner-container absolute bottom-[10%] left-1/2 -translate-x-1/2">
-                <div className="spinner w-[50px] h-[50px] border-[1.4px] border-[#b60708] border-t-white/[0.125] rounded-full animate-spin opacity-100"></div>
+                <div
+                    className="spinner w-[50px] h-[50px] border-[1.4px] border-[#b60708] border-t-white/[0.125] rounded-full animate-spin opacity-100"></div>
             </div>
 
             <div className="counter absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[2]">
