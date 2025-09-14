@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+:root {
+    --primary: #f4efe6;
+    --secondary: #e7e4d8;
+    --third: #b60708;
+}
+
+@theme {
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-third: var(--third);
+}
+
+body {
+    @apply antialiased;
+}
+
 @layer utilities {
     .loader-block {
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);

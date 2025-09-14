@@ -5,7 +5,7 @@ import ActiveLink from "@/components/active-link";
 export default function Header() {
 
     return (
-        <header className="h-28 w-screen bg-[#f4efe6] text-black shadow-lg">
+        <header className="h-28 w-screen bg-primary text-black shadow-lg">
             <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4">
                 <div className="shrink-0">
                     <Image
@@ -17,7 +17,7 @@ export default function Header() {
                     />
                 </div>
 
-                <ul className="flex items-center gap-x-6 text-sm font-medium relative">
+                <ul className="flex items-center gap-x-6 text-sm relative">
                     {breadcrumbs.map((item, i) => (
                         <li key={i} className="relative group">
                             <ActiveLink href={item.slug}>
@@ -25,7 +25,7 @@ export default function Header() {
                             </ActiveLink>
 
                             {item.children && item.children.length > 0 && (
-                                <ul className="absolute left-0 top-full bg-[#f4efe6] shadow-md rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-100 min-w-[180px] z-50">
+                                <ul className="absolute left-0 top-full bg-secondary shadow-xl rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-100 min-w-[180px] z-50">
                                     {item.children.map((child, index) => (
                                         <li key={index} className="px-4 py-2">
                                             <ActiveLink href={child.slug}>

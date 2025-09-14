@@ -32,7 +32,6 @@ export default function RootLayout({
         <main className='h-screen w-screen bg-[#e7e4d8]'>
             {children}
         </main>
-
         </body>
         </html>
     );

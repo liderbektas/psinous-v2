@@ -98,21 +98,21 @@ export default function Loader() {
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 intro-logo">
                 <div id="word-1" className="relative word overflow-hidden">
-                    <h1 className="text-[2.5rem] text-[#b60708] translate-y-full font-semibold italic">
+                    <h1 className="text-[2.5rem] text-third translate-y-full font-semibold italic">
                         <span>Psi</span>
                     </h1>
                 </div>
                 <div id="word-2" className="word overflow-hidden">
-                    <h1 className="text-[2.5rem] text-[#b60708] -translate-y-full font-semibold">Nous</h1>
+                    <h1 className="text-[2.5rem] text-third -translate-y-full font-semibold">Nous</h1>
                 </div>
             </div>
 
             <div
-                className="divider absolute top-0 left-[calc(50%-1.15rem)] -translate-x-1/2 origin-top w-px h-full bg-[#b60708] scale-y-0"></div>
+                className="divider absolute top-0 left-[calc(50%-1.15rem)] -translate-x-1/2 origin-top w-px h-full bg-third scale-y-0"></div>
 
             <div className="spinner-container absolute bottom-[10%] left-1/2 -translate-x-1/2">
                 <div
-                    className="spinner w-[50px] h-[50px] border-[1.4px] border-[#b60708] border-t-white/[0.125] rounded-full animate-spin opacity-100"></div>
+                    className="spinner w-[50px] h-[50px] border-[1.4px] border-third border-t-white/[0.125] rounded-full animate-spin opacity-100"></div>
             </div>
 
             <div className="counter absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[2]">

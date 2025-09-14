@@ -1,9 +1,5 @@
 export const breadcrumbs = [
     {
-        text: 'Ana Sayfa',
-        slug: '/',
-    },
-    {
         text: 'Biz Kimiz',
         slug: '/about',
         children: [
